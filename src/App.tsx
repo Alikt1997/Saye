@@ -166,10 +166,10 @@ export default function App() {
   }, []);
 
   if (activeView === 'safety') {
-    return <GuvenliKalkan onBack={() => { window.location.hash = ''; setActiveView('home'); }} />;
+    return <GuvenliKalkan onBack={() => { window.location.hash = ''; setActiveView('home'); }} isDarkMode={isDarkMode} />;
   }
   if (activeView === 'explore') {
-    return <SayeKesif onBack={() => { window.location.hash = ''; setActiveView('home'); }} />;
+    return <SayeKesif onBack={() => { window.location.hash = ''; setActiveView('home'); }} isDarkMode={isDarkMode} />;
   }
   if (activeView === 'dayanisma') {
     return <DayanismaAgi onBack={() => { window.location.hash = ''; setActiveView('home'); }} lang={lang} isDarkMode={isDarkMode} />;
