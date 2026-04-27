@@ -66,9 +66,10 @@ const STEPS = [
 
 interface Props {
   onBack: () => void;
+  isDarkMode?: boolean;
 }
 
-export default function GuvenliKalkan({ onBack }: Props) {
+export default function GuvenliKalkan({ onBack, isDarkMode = false }: Props) {
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<QuizState>({
     physical: null,
@@ -134,7 +135,7 @@ export default function GuvenliKalkan({ onBack }: Props) {
            {/* Emergency Map */}
            <div className="space-y-4">
               <h4 className="font-bold text-slate-300 text-sm px-1 uppercase tracking-wider">Size En Yakın Destek Merkezleri</h4>
-              <EmergencyMap />
+              <EmergencyMap isDarkMode={isDarkMode} />
            </div>
 
            {/* Informational Note */}
