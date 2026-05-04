@@ -166,10 +166,10 @@ export default function App() {
   }, []);
 
   if (activeView === 'safety') {
-    return <GuvenliKalkan onBack={() => { window.location.hash = ''; setActiveView('home'); }} isDarkMode={isDarkMode} />;
+    return <GuvenliKalkan onBack={() => { window.location.hash = ''; setActiveView('home'); }} />;
   }
   if (activeView === 'explore') {
-    return <SayeKesif onBack={() => { window.location.hash = ''; setActiveView('home'); }} isDarkMode={isDarkMode} />;
+    return <SayeKesif onBack={() => { window.location.hash = ''; setActiveView('home'); }} />;
   }
   if (activeView === 'dayanisma') {
     return <DayanismaAgi onBack={() => { window.location.hash = ''; setActiveView('home'); }} lang={lang} isDarkMode={isDarkMode} />;
@@ -199,7 +199,7 @@ export default function App() {
         </div>
         <div className="flex items-center gap-4 md:gap-6">
           <button 
-                onClick={() => window.location.href = 'https://www.accuweather.com'}
+                onClick={() => window.location.replace('https://www.mgm.gov.tr')}
                 className="px-4 py-2 bg-red-600 text-white rounded-full text-sm font-bold shadow-lg shadow-red-500/20 hover:bg-red-700 transition-all flex items-center gap-2"
                 title={lang === 'tr' ? 'Sizi anında güvenli bir siteye yönlendirir' : 'Redirects you to a safe site instantly'}
           >
@@ -392,7 +392,7 @@ export default function App() {
 
       {/* Mobile Floating Exit Button */}
       <button 
-          onClick={() => window.location.href = 'https://www.accuweather.com'}
+          onClick={() => window.location.replace('https://www.mgm.gov.tr')}
           className="md:hidden fixed bottom-6 right-6 z-[100] px-4 py-3 bg-red-600 text-white rounded-full text-sm font-bold shadow-2xl shadow-red-500/50 hover:bg-red-700 transition-all flex items-center gap-2"
           title={lang === 'tr' ? 'Sizi anında güvenli bir siteye yönlendirir' : 'Redirects you to a safe site instantly'}
       >
