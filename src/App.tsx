@@ -144,6 +144,8 @@ export default function App() {
   const [isSayeOlInfoModalOpen, setIsSayeOlInfoModalOpen] = useState(false);
   const [isStoryModalOpen, setIsStoryModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [activeView, setActiveView] = useState<'home' | 'safety' | 'explore' | 'dayanisma'>('home');
   const t = translations[lang];
@@ -229,9 +231,7 @@ export default function App() {
           <span onClick={() => setIsAboutModalOpen(true)} className={`hidden md:block text-sm font-medium ${isDarkMode ? 'text-slate-300 hover:text-teal-400' : 'text-slate-900 hover:text-teal-600'} transition-colors cursor-pointer`}>
             {lang === 'tr' ? 'Hakkımızda' : 'About'}
           </span>
-          <button onClick={() => setIsLoginModalOpen(true)} className={`px-5 py-2.5 ${isDarkMode ? 'bg-teal-600 text-white' : 'bg-slate-900 text-white'} rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all`}>
-            {lang === 'tr' ? 'Giriş Yap' : 'Login'}
-          </button>
+
         </div>
       </motion.nav>
 

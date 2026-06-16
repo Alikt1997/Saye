@@ -38,7 +38,19 @@ export function FeatureSlider({ isDarkMode, id }: { isDarkMode: boolean, id?: st
     return visible;
   };
 
-  return (
+    const handleCardClick = (id: string) => {
+      if (id === 'explore') {
+          window.location.hash = 'explore';
+      } else if (id === 'kids') {
+          window.location.hash = 'explore';
+      } else if (id === 'safety') {
+          window.location.hash = 'safety';
+      } else if (id === 'community') {
+          window.location.hash = 'dayanisma';
+      }
+    };
+
+    return (
     <div id={id} className="relative w-full overflow-hidden py-16">
       <div className="flex justify-center items-center gap-4">
         <button onClick={() => setCurrentIndex((prev) => (prev - 1 + features.length) % features.length)} className="p-3 rounded-full bg-slate-500/10 hover:bg-slate-500/20 backdrop-blur-sm transition-colors"><ChevronLeft className="w-6 h-6" /></button>
@@ -53,7 +65,10 @@ export function FeatureSlider({ isDarkMode, id }: { isDarkMode: boolean, id?: st
                         animate={{ opacity: 1, x: 0, scale: 1 }}
                         exit={{ opacity: 0, x: -50, scale: 0.95 }}
                         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className={`w-80 p-7 rounded-3xl border border-white/10 border-t-4 ${feat.borderColor} backdrop-blur-2xl ${isDarkMode ? 'bg-slate-900/60' : 'bg-white/50'} shadow-lg hover:shadow-2xl group hover:-translate-y-1 transition-all duration-500 cursor-pointer`}
+                        whileHover={{ y: -8, scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleCardClick(feat.id)}
+                        className={`w-80 p-7 rounded-3xl border border-white/10 border-t-4 ${feat.borderColor} backdrop-blur-2xl ${isDarkMode ? 'bg-slate-900/60' : 'bg-white/50'} shadow-lg hover:shadow-2xl group transition-all duration-500 cursor-pointer`}
                     >
                         <feat.icon className={`w-12 h-12 ${feat.iconColor} mb-6 transition-transform duration-500 group-hover:scale-110`} />
                         <h3 className="text-2xl font-extrabold mb-4">{feat.title}</h3>
